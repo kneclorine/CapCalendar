@@ -7,6 +7,9 @@ class TimerService{
     constructor(pubSub, timerInterface){
         this._pubSub = pubSub;
         this._timerInterface = timerInterface;
+
+        //TODO: Me subscribo a setInterval y cada intervalo de tiempo controlado 
+        //por el pubsub mando una nueva fecha
     }
 }
 
