@@ -1,4 +1,8 @@
 export const timerInterface = {
-    setInterval:(handler, interval)=>{}, //Asignar/Ejecutar setInterval de window
-    clearInterval:(intervalId)=>{} //Asignar/Ejecutar clearInterval de window
+    setInterval:(handler, interval)=>{
+        this.setInterval(handler, interval).bind(window.setInterval(handler, interval));
+    }, 
+    clearInterval:(intervalId)=>{
+        this.clearInterval(intervalId).bind(window.clearInterval(intervalId));
+    }
 }
