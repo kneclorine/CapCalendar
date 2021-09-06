@@ -1,15 +1,19 @@
 import {INTERVAL} from './Config.js';
 import {PubSub} from './PubSub.js';
 import {timerInterface} from './TimerInterface.js';
+import {CHANNELS} from './Config.js';
 
 class TimerService{
-
     constructor(pubSub, timerInterface){
         this._pubSub = pubSub;
         this._timerInterface = timerInterface;
-
-        //TODO: Me subscribo a setInterval y cada intervalo de tiempo controlado 
-        //por el pubsub mando una nueva fecha
+        this._intervalId = this._timerInterface.setInterval(INTERVAL, ()=> {
+            const date = new Date();
+            this._pubSub.emit(CHANNELS.CHANGEDATE, date);
+        });
+    }
+    dispose(){
+        this._timerInterface.clearInterval(this._intervalId);
     }
 }
 
