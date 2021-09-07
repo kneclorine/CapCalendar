@@ -36,4 +36,8 @@ export class DateService {
             date.getMonth() === today.getMonth() &&
             date.getFullYear() === today.getFullYear();
     }
+    static isSameMonth(date, today) {
+        return date.getMonth() === today.getMonth() &&
+        date.getFullYear() === today.getFullYear();
+    }
 }
