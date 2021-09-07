@@ -13,7 +13,7 @@ export class MonthDate extends BaseDateComponent {
        const disposable = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
             if (!DateService.isSameMonth(date, new Date())) {
                 super._update(texto,date)
-            }
+            } 
         })
         this._disposables.push(disposable);
     }

@@ -11,6 +11,6 @@ export class SelectedDate extends BaseDateComponent {
         const disposable = pubSub.on(CHANNELS.CHANGESELECTEDDAY, (date) => super._update(texto,date));
         this._disposables.push(disposable);
     }
-
+ 
 }
 customElements.define("cap-selecteddate", SelectedDate);

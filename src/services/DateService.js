@@ -4,7 +4,7 @@ export class DateService {
             let newDate = new Date(date);
             newDate.setDate(1);
             return newDate;
-        }
+        } 
         function getFirstCalendarDay(date) {
             let firstCalendarDay = getFirstDayOfMonth(date);
             while (firstCalendarDay.getDay() != 1) {

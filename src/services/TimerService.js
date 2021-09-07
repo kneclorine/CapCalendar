@@ -16,5 +16,4 @@ class TimerService{
         this._timerInterface.clearInterval(this._intervalId);
     }
 }
-
 export default new TimerService(pubSub, timerInterface);

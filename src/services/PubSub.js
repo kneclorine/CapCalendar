@@ -1,7 +1,7 @@
 export class PubSub {
     constructor(){
         this.suscriptors = new Map();
-    }
+    } 
     emit(channel, data){
         const channelSuscriptor = this.suscriptors.get(channel);
         if(channelSuscriptor){
