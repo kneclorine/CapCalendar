@@ -9,7 +9,7 @@ export class PubSub {
         }
     }
     on(channel, handler){
-        const channelSuscriptor = this.suscriptors.get(channel);
+        let channelSuscriptor = this.suscriptors.get(channel);
         if(!channelSuscriptor){
             channelSuscriptor = [handler];
             this.suscriptors.set(channel, channelSuscriptor);
@@ -27,3 +27,5 @@ export class PubSub {
         }
     }
 }
+
+export default new PubSub();
