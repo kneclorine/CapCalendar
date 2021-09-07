@@ -1,7 +1,7 @@
-import { FormatService } from "../../services/FormatService.js";
-import pubSub from '../../services/PubSub.js'
-import { CHANNELS } from "../../services/Config.js";
-import { DateService } from "../../services/DateService.js";
+import { FormatService } from "../../services/formatservice.js";
+import pubSub from '../../services/pubsub.js'
+import { CHANNELS } from "../../services/config.js";
+import { DateService } from "../../services/dateservice.js";
 import { BaseDateComponent } from "../basedatecomponent.js";
 
 export class MonthDate extends BaseDateComponent {

@@ -30,6 +30,6 @@ export class BaseDateComponent extends HTMLElement {
         this._shadow.textContent = "";
     }
     _formatDate() {
-        throw "Method not implementet"
+        throw "Method not implemented."
     } 
 }

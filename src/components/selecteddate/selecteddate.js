@@ -1,6 +1,6 @@
-import { FormatService } from '../../services/FormatService.js'
-import pubSub from '../../services/PubSub.js'
-import { CHANNELS } from '../../services/Config.js'
+import { FormatService } from '../../services/formatservice.js'
+import pubSub from '../../services/pubsub.js'
+import { CHANNELS } from '../../services/config.js'
 import { BaseDateComponent } from '../basedatecomponent.js';
 export class SelectedDate extends BaseDateComponent {
     _formatDate() {

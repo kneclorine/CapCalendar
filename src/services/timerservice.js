@@ -1,7 +1,7 @@
-import {INTERVAL} from './Config.js';
-import pubSub from './PubSub.js';
-import {timerInterface} from './TimerInterface.js';
-import {CHANNELS} from './Config.js';
+import {INTERVAL} from './config.js';
+import pubSub from './pubsub.js';
+import {timerInterface} from './timerinterface.js';
+import {CHANNELS} from './config.js';
 
 class TimerService{
     constructor(pubSub, timerInterface){
