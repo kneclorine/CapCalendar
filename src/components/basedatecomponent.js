@@ -5,7 +5,6 @@ export class BaseDateComponent extends HTMLElement {
         this._date = new Date();
         this._shadow = this.attachShadow({mode: "open"})
     }
-    
     _create(date) {
         const div = document.createElement("div");
         const texto = document.createTextNode(this._formatDate());
@@ -13,13 +12,15 @@ export class BaseDateComponent extends HTMLElement {
         this._shadow.appendChild(div);
         return texto;
     }
-
     _update(node, date) {
         this._date = date;
         node.data = this._formatDate();
     }
     disconnectedCallback() {
         this._removeChildren();
+        this._clearDisposables();
+    }
+    _clearDisposables(){
         this._disposables.forEach(disposable=>{
             disposable && disposable();
         })
