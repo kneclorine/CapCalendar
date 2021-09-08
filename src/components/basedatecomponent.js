@@ -1,9 +1,12 @@
+import baseCss from './basedatecomponent.css.js'
 export class BaseDateComponent extends HTMLElement {
     constructor() {
         super();
         this._disposables = [];
         this._date = new Date();
         this._shadow = this.attachShadow({mode: "open"})
+        this._shadow.adoptedStyleSheets = [baseCss];
+
     }
     _create(date) {
         const div = document.createElement("div");
