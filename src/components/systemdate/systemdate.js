@@ -14,7 +14,7 @@ export class SystemDate extends BaseDateComponent {
     return FormatService.getDate(this._date);
   }
   connectedCallback() {
-    const texto = super._create(this._date);
+    const texto = super._create();
     const disposable = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
       if (!DateService.isToday(date, new Date())) {
         super._update(texto, date)

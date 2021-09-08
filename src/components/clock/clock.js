@@ -8,7 +8,7 @@ export class Clock extends BaseDateComponent {
         return FormatService.getTime(this._date)
     }
     connectedCallback() {
-        const texto = super._create(this._date);
+        const texto = super._create();
         const disposable = pubSub.on(CHANNELS.CHANGEDATE, (date) => super._update(texto,date));
         this._disposables.push(disposable);
         this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets,css];

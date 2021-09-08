@@ -14,7 +14,7 @@ export class MonthDate extends BaseDateComponent {
         return FormatService.getDateMonth(this._date)
     }
     connectedCallback() {
-       const texto = super._create(this._date)
+       const texto = super._create()
        const disposable = pubSub.on(CHANNELS.CHANGEDATE, (date) => {
             if (!DateService.isSameMonth(date, new Date())) {
                 super._update(texto,date)
