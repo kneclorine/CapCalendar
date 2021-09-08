@@ -7,7 +7,7 @@ export class SelectedDate extends BaseDateComponent {
         return FormatService.getSelectedDate(this._date)
     }
     connectedCallback() {
-        const texto = super._create(this._date);
+        const texto = super._create();
         const disposable = pubSub.on(CHANNELS.CHANGESELECTEDDAY, (date) => super._update(texto,date));
         this._disposables.push(disposable);
     }
