@@ -18,4 +18,8 @@ export class FormatService {
         return DateService.isToday(date,new Date()) ?
                  "Today":  new Intl.DateTimeFormat('es-ES', options).format(date);
     }
+    static getDay(date){
+        let options ={day:'numeric'};
+        return new Intl.DateTimeFormat('es-ES', options).format(date);
+    }
 }
