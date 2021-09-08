@@ -1,8 +1,8 @@
 const sheet = new CSSStyleSheet();
-sheet.replace(`div {
+sheet.replace(`:host {
     color: lightblue; 
 }
-div:hover {
+:host(:hover) {
     color: grey;
 }
 `)
