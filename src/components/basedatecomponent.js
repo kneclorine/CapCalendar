@@ -8,7 +8,7 @@ export class BaseDateComponent extends HTMLElement {
         this._shadow.adoptedStyleSheets = [baseCss];
 
     }
-    _create(date) {
+    _create() {
         const div = document.createElement("div");
         const texto = document.createTextNode(this._formatDate());
         div.appendChild(texto);
