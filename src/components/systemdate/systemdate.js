@@ -3,8 +3,13 @@ import pubSub from '../../services/pubsub.js'
 import { CHANNELS } from "../../services/config.js";
 import { DateService } from "../../services/dateservice.js";
 import { BaseDateComponent } from "../basedatecomponent.js";
+import css from './systemdate.css.js';
 
 export class SystemDate extends BaseDateComponent {
+  constructor() {
+    super();
+    this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
+  }
   _formatDate() {
     return FormatService.getDate(this._date);
   }
