@@ -1,10 +1,15 @@
 import { DAYSOFWEEK } from "../../services/config.js";
-import { BaseDateComponent } from "../basedatecomponent.js";
-import css from './daysofweek.css.js'
+import css from './daysofweek.css.js';
+import cssBase from '../basedatecomponent.css.js';
 
-export class DaysOfWeek extends BaseDateComponent{
+export class DaysOfWeek extends HTMLElement{
+    constructor(){
+        super();
+        this._shadow = this.attachShadow({mode: "open"});
+    }
+
     connectedCallback() {
-        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets,css];
+        this._shadow.adoptedStyleSheets = [cssBase, css];
         let i = 0
         DAYSOFWEEK.forEach(element => {
             const texto = document.createTextNode(DAYSOFWEEK[i]);
