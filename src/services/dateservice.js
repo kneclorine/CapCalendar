@@ -17,7 +17,7 @@ export class DateService {
             let firstCalendarDay = getFirstCalendarDay(date);
             let i;
             for (i = 0; i < 42; i++) {
-                calendarDays.push(firstCalendarDay.getDate());
+                calendarDays.push(firstCalendarDay);
                 firstCalendarDay.setDate(firstCalendarDay.getDate() + 1);
             }
             return calendarDays;
