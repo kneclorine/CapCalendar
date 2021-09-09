@@ -6,17 +6,16 @@ export class DaysOfWeek extends HTMLElement{
     constructor(){
         super();
         this._shadow = this.attachShadow({mode: "open"});
+        this._create();
     }
 
-    connectedCallback() {
+    _create(){
         this._shadow.adoptedStyleSheets = [cssBase, css];
-        let i = 0
         DAYSOFWEEK.forEach(element => {
-            const texto = document.createTextNode(DAYSOFWEEK[i]);
+            const texto = document.createTextNode(element);
             const div = document.createElement('div')
             div.appendChild(texto);
             this._shadow.appendChild(div);
-            i++
         });
     }
 } 
