@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CapCalendar</title>
+    
 </head>
 <body>
     <cap-clock></cap-clock>
     <cap-sysdate></cap-sysdate>
-    <cap-monthdate></cap-monthdate>
+    <div style="display:flex;">
+        <cap-monthdate></cap-monthdate>
+        <cap-calendarbutton action="up"></cap-calendarbutton>
+        <cap-calendarbutton action="down"></cap-calendarbutton>
+    </div>
     <cap-daysofweek></cap-daysofweek>
     <cap-day></cap-day>
     <cap-selecteddate></cap-selecteddate>
     <script type="module" src="src/main.js"></script>
-
 </body>
 </html>
