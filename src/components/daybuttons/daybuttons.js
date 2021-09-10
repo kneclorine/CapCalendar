@@ -1,15 +1,20 @@
-import { BaseDateComponent } from "../basedatecomponent.js";
 import pubSub from '../../services/pubsub.js';
 import {CHANNELS} from '../../services/config.js';
 import { FormatService } from '../../services/formatservice.js'
-export class DayButtons extends BaseDateComponent {
+import { Day } from './day.js';
+export class DayButtons extends HTMLElement{
+    constructor(){
+        super();
+        this.day = new Day();
+    }
     _formatDate() {
-        return FormatService.getDay(this._date.setDate(this._date.getDate()+1))
+        return FormatService.getDay(this.day._showDate());
     }
     connectedCallback(){
-        const texto = super._create();
+        const texto = document.createTextNode(this._formatDate());
+        this.appendChild(texto);
         //this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets,css];
-        this.addEventListener("click", ()=>{pubSub.emit(CHANNELS.CHANGESELECTEDDAY,this._date)},false);
+        this.addEventListener("click", ()=>{pubSub.emit(CHANNELS.CHANGESELECTEDDAY,this.day._showDate())},false);
     }
 }
 customElements.define("cap-day", DayButtons);

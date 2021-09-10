@@ -16,7 +16,7 @@ export class FormatService {
     static getSelectedDate(date) {
         let options = { weekday: 'long', day: 'numeric' };
         return DateService.isToday(date,new Date()) ?
-                 "Today":  new Intl.DateTimeFormat('es-ES', options).format(date);
+                "Today":  new Intl.DateTimeFormat('es-ES', options).format(date);
     }
     static getDay(date){
         let options ={day:'numeric'};

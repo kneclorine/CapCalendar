@@ -9,9 +9,7 @@ export class BaseDateComponent extends HTMLElement {
 
     }
     _create() {
-        
         const texto = document.createTextNode(this._formatDate());
-        
         this._shadow.appendChild(texto);
         return texto;
     }
