@@ -2,13 +2,16 @@ const sheet = new CSSStyleSheet();
 sheet.replace(`
 :host{
     padding-right: 0.3em;
-    background-color: rgb(70,70,70);
+    background-color: var(--main-bg-color);
 }
 :host > button{
-    color: white;
+    color: var(--monthdate-color);
     background-color: transparent;
     border-color: transparent;
     height: 100%;
+}
+:host > button:hover{
+    color: var(--main-font-color)
 }
 :host > button[action="1"]{
 }

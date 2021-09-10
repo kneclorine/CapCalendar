@@ -5,15 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CapCalendar</title>
-    
+    <style>
+        :root{
+            --main-bg-color: rgb(70, 70, 70);
+            --main-font-color: rgb(255, 255, 255);
+            --systemdate-color: rgb(173, 216, 230);
+            --systemdate-hover-color: rgb(128, 128, 128);
+            --monthdate-color: rgb(211, 211, 211);
+            --not-monthday-color: rgb(105, 105, 105);
+            --day-color: rgb(0, 150,255);
+            --border-color: rgb(128, 128, 128);
+        }
+    </style>
 </head>
 <body>
     <cap-clock></cap-clock>
     <cap-sysdate></cap-sysdate>
     <div style="display:flex;">
         <cap-monthdate></cap-monthdate>
-        <cap-calendarbutton action="up"></cap-calendarbutton>
         <cap-calendarbutton action="down"></cap-calendarbutton>
+        <cap-calendarbutton action="up"></cap-calendarbutton>     
     </div>
     <cap-daysofweek></cap-daysofweek>
     <cap-day></cap-day>
