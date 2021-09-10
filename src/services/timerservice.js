@@ -12,6 +12,12 @@ class TimerService{
             this._pubSub.emit(CHANNELS.CHANGEDATE, date);
         },INTERVAL);
     }
+    init(){
+        this._intervalId = this._timerInterface.setInterval(()=>{
+            const date = new Date();
+            this._pubSub.emit(CHANNELS.CHANGEDATE, date);
+        }, INTERVAL);
+    }
     dispose(){
         this._timerInterface.clearInterval(this._intervalId);
     }

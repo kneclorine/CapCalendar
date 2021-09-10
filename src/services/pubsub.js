@@ -26,5 +26,8 @@ export class PubSub {
             }
         }
     }
+    dispose(){
+        this.map = null;
+    }
 }
 export default new PubSub();
