@@ -5,7 +5,7 @@ sheet.replace(`:host{
     background-color: var(--main-bg-color);
     font-family: sans-serif;
     display: grid;
-    padding: 0 0.7em;
+    padding: 1em 0.7em;
     gap: 0.8em 2em;
     grid-template-columns: repeat(7,1em);
     text-align: center;

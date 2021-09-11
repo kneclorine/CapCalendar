@@ -5,3 +5,4 @@ export * from './selecteddate/selecteddate.js';
 export * from './gridcalendar/gridcalendar.js'
 export * from './daysofweek/daysofweek.js';
 export * from './calendarbuttons/calendarbuttons.js';
+export * from './calendar/calendar.js';

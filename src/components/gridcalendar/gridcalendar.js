@@ -52,18 +52,18 @@ export class GridCalendar extends HTMLElement{
     }
 
     connectedCallback() {
-        this._create();
         const disposable = pubSub.on(CHANNELS.CHANGEMONTH, (diff) => {
-            this.date.setMonth(this.date.getMonth() + diff);
+            this.date = DateService.addMonth(this.date, diff);
             this._update();
         });
         const disposable2 = pubSub.on(CHANNELS.CHANGEDATE, (newDate) => {
-            if(!newDate.getDay() == this.date.getDay() || !newDate.getMonth() == this.date.getMonth()){
+            if(this.date.getMonth() == newDate && this.date.getDay != newDate.getDay()){
                 this.date = newDate;
                 this._update();
             }
         });
         this._disposables.push(disposable, disposable2);
+        this._create();
     }
 }
 customElements.define("cap-calendar", GridCalendar);

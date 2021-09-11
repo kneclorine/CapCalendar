@@ -1,8 +1,9 @@
 const sheet = new CSSStyleSheet();
 sheet.replace(`:host {
     color: var(--monthdate-color);
-    flex-grow: 1;
-    padding-bottom: 0;
+    display: inline-block;
+    width: 13.2em;
+    padding: 1em;
 }
 :host(:hover) {
     color: var(--main-font-color);

@@ -1,8 +1,8 @@
 export class DateService {
-    static addMonth(date, diff) {
-        let newDate = date;
-        newDate.setMonth(date.getMonth() + diff);
-        return this.getMonthDays(newDate);
+    static addMonth(oldDate, diff) {
+        let newDate = new Date(oldDate);
+        newDate.setMonth(oldDate.getMonth() + diff);
+        return newDate;
     }
     static isToday(date, today) {
         return date.getDate() === today.getDate() &&
@@ -29,12 +29,13 @@ export class DateService {
         function getCalendarDays(date) {
             const calendarDays = [];
             const firstCalendarDay = getFirstCalendarDay(date);
+            const today = new Date();
             let i;
             for (i = 0; i < 42; i++) {
                 let fecha = new Date(firstCalendarDay);
                 calendarDays.push({
                     date: fecha,
-                    isToday: DateService.isToday(firstCalendarDay, new Date()),
+                    isToday: DateService.isToday(fecha, today),
                     isMonth: DateService.isSameMonth(firstCalendarDay, date),
                     isSelected: false
                 });
@@ -44,6 +45,4 @@ export class DateService {
         }
         return getCalendarDays(date);
     }
-
-    
 }
