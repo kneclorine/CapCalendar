@@ -13,6 +13,5 @@ export class Clock extends BaseDateComponent {
         this._disposables.push(disposable);
         this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets,css];
     }
- 
 }
 customElements.define("cap-clock", Clock);

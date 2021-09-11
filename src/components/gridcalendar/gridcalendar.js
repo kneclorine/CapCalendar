@@ -13,11 +13,12 @@ export class GridCalendar extends HTMLElement{
         this._disposables = [];
         this._shadow = this.attachShadow({mode: "open"});
     }
+    
     _formatDate(date){
         return FormatService.getDay(date);
     }
     
-    connectedCallback() {
+    _create(){
         let elementDays = [];
         elementDays = DateService.getMonthDays(this.date);
         elementDays.forEach(element => {
@@ -28,20 +29,41 @@ export class GridCalendar extends HTMLElement{
             div.addEventListener("click", ()=>{div.classList.add("selected")},false);
             div.addEventListener("click", ()=>{this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets,css2]},false);
             const disposable = pubSub.on(CHANNELS.CHANGESELECTEDDAY, (element) => {div.classList.remove("selected"),element.isSelected=false});
-        this._disposables.push(disposable);
+            this._disposables.push(disposable);
             if(!element.isMonth){
                 div.classList.add("notMonth");
             } 
             if(!element.isSelected){
                 div.classList.remove("selected");
             }
+            if(element.isToday){
+                div.classList.add("today");
+            }
             this._shadow.appendChild(div);
             this._shadow.adoptedStyleSheets = [css];
         });
-
     }
-    
- 
-}
 
+    _update(){
+        while (this._shadow.firstChild) {
+            this._shadow.removeChild(this._shadow.lastChild);
+        }
+        this._create();
+    }
+
+    connectedCallback() {
+        this._create();
+        const disposable = pubSub.on(CHANNELS.CHANGEMONTH, (diff) => {
+            this.date.setMonth(this.date.getMonth() + diff);
+            this._update();
+        });
+        const disposable2 = pubSub.on(CHANNELS.CHANGEDATE, (newDate) => {
+            if(!newDate.getDay() == this.date.getDay() || !newDate.getMonth() == this.date.getMonth()){
+                this.date = newDate;
+                this._update();
+            }
+        });
+        this._disposables.push(disposable, disposable2);
+    }
+}
 customElements.define("cap-calendar", GridCalendar);

@@ -1,8 +1,9 @@
 const sheet = new CSSStyleSheet();
 sheet.replace(`
 :host{
-    padding-right: 0.3em;
+    padding: 0 0.7em;
     background-color: var(--main-bg-color);
+    text-align: center;
 }
 :host > button{
     color: var(--monthdate-color);
@@ -12,8 +13,6 @@ sheet.replace(`
 }
 :host > button:hover{
     color: var(--main-font-color)
-}
-:host > button[action="1"]{
 }
 :host > button[action="-1"]{
     transform: rotate(180deg);

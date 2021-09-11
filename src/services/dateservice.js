@@ -1,5 +1,3 @@
-import { Day } from "../components/daybuttons/day.js";
-
 export class DateService {
     static addMonth(date, diff) {
         let newDate = date;
@@ -30,16 +28,14 @@ export class DateService {
         }
         function getCalendarDays(date) {
             const calendarDays = [];
-            const today = new Date();
             const firstCalendarDay = getFirstCalendarDay(date);
-            //let fecha = firstCalendarDay;
             let i;
             for (i = 0; i < 42; i++) {
                 let fecha = new Date(firstCalendarDay);
                 calendarDays.push({
                     date: fecha,
-                    isToday: DateService.isToday(firstCalendarDay,today),
-                    isMonth: DateService.isSameMonth(firstCalendarDay, today),
+                    isToday: DateService.isToday(firstCalendarDay, new Date()),
+                    isMonth: DateService.isSameMonth(firstCalendarDay, date),
                     isSelected: false
                 });
                 firstCalendarDay.setDate(firstCalendarDay.getDate() + 1);
