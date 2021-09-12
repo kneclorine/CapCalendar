@@ -4,8 +4,7 @@ export class BaseDateComponent extends HTMLElement {
         super();
         this._disposables = [];
         this._date = new Date();
-        this._shadow = this.attachShadow({mode: "open"})
-        this._shadow.adoptedStyleSheets = [baseCss];
+        this._shadow = this.attachShadow({mode: "open"});
 
     }
     _create() {
