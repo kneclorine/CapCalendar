@@ -28,5 +28,9 @@ sheet.replace(`:host{
         box-sizing: border-box;
         border: 0.05em solid var(--main-font-color);
     }
+    div.selected{
+        box-sizing: border-box;
+        border: 0.15em solid var(--day-color);
+    }
     `)
 export default sheet

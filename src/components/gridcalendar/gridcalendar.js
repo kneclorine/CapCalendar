@@ -3,7 +3,6 @@ import { FormatService } from "../../services/formatservice.js";
 import pubSub from "../../services/pubsub.js";
 import { CHANNELS } from "../../services/config.js";
 import css from "./gridcalendar.css.js";
-import css2 from "./gridcalendar2.css.js";
 
 
 export class GridCalendar extends HTMLElement{
@@ -25,10 +24,8 @@ export class GridCalendar extends HTMLElement{
             let div = document.createElement('div');
             const texto = document.createTextNode(this._formatDate(element.date));
             div.appendChild(texto);
-            div.addEventListener("click", ()=>{pubSub.emit(CHANNELS.CHANGESELECTEDDAY,element.date)},false);
-            div.addEventListener("click", ()=>{div.classList.add("selected")},false);
-            div.addEventListener("click", ()=>{this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets,css2]},false);
-            const disposable = pubSub.on(CHANNELS.CHANGESELECTEDDAY, (element) => {div.classList.remove("selected"),element.isSelected=false});
+            div.addEventListener("click", ()=>{this._listener(div,element)},false);
+            const disposable = pubSub.on(CHANNELS.CHANGESELECTEDDAY, (element) => {this._changeSelected(div,element)});
             this._disposables.push(disposable);
             if(!element.isMonth){
                 div.classList.add("notMonth");
@@ -64,6 +61,26 @@ export class GridCalendar extends HTMLElement{
         });
         this._disposables.push(disposable, disposable2);
         this._create();
+    }
+    disconnectedCallback() {
+        this._removeChildren();
+        this._clearDisposables();
+    }
+    _clearDisposables(){
+        this._disposables.forEach(disposable=>{
+            disposable && disposable();
+        })
+        this._disposables = [];
+    }
+    _removeChildren(){
+        this._shadow.textContent = "";
+    }
+    _listener(div,element){
+        pubSub.emit(CHANNELS.CHANGESELECTEDDAY,element.date);
+        div.classList.add("selected");
+    }_changeSelected(div,element){
+        div.classList.remove("selected");
+        element.isSelected=false;
     }
 }
 customElements.define("cap-calendar", GridCalendar);
