@@ -17,6 +17,12 @@ sheet.replace(`:host{
     :host .today{
         background-color: var(--day-color);
     }
+
+    :host .today.selected {
+        border: 0.1em solid black;
+        box-sizing: border-box;
+        outline: 0.1em solid var(--day-color);
+    }
     div{
         width: 2em;
         height: 2em;

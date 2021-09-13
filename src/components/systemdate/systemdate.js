@@ -6,10 +6,6 @@ import { BaseDateComponent } from "../basedatecomponent.js";
 import css from './systemdate.css.js';
 
 export class SystemDate extends BaseDateComponent {
-  constructor() {
-    super();
-    this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
-  }
   _formatDate() {
     return FormatService.getDate(this._date);
   }
@@ -21,7 +17,7 @@ export class SystemDate extends BaseDateComponent {
       } 
     });
     this._disposables.push(disposable);
-
+    this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
   }
 }
 customElements.define("cap-sysdate", SystemDate);

@@ -35,6 +35,7 @@ export class GridCalendar extends HTMLElement{
             }
             if(element.isToday){
                 div.classList.add("today");
+                div.classList.add("selected");
             }
             this._shadow.appendChild(div);
             this._shadow.adoptedStyleSheets = [css];

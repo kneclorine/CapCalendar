@@ -6,10 +6,6 @@ import { BaseDateComponent } from "../basedatecomponent.js";
 import css from './monthdate.css.js';
 
 export class MonthDate extends BaseDateComponent {
-    constructor() {
-        super();
-        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
-    }
     _formatDate() {
         return FormatService.getDateMonth(this._date)
     }
@@ -26,6 +22,7 @@ export class MonthDate extends BaseDateComponent {
             super._update(texto,newDate)
         })
         this._disposables.push(disposableDate, disposableMonth);
+        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
     }
 }
 customElements.define("cap-monthdate", MonthDate);
