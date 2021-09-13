@@ -27,7 +27,6 @@ export class CalendarButtons extends HTMLElement {
         this._shadow.adoptedStyleSheets = [css];
         let button = document.createElement("button");
         button.setAttribute("action", this._action);
-        button.appendChild(document.createTextNode("V"));
         this._shadow.appendChild(button);
     }
     _handlerClick(ev){
