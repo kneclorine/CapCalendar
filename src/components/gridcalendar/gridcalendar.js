@@ -54,7 +54,7 @@ export class GridCalendar extends HTMLElement{
             this._update();
         });
         const disposable2 = pubSub.on(CHANNELS.CHANGEDATE, (newDate) => {
-            if(this.date.getMonth() == newDate && this.date.getDay != newDate.getDay()){
+            if(this.date.getMonth() == newDate && this.date.getDay !== newDate.getDay()){
                 this.date = newDate;
                 this._update();
             }
