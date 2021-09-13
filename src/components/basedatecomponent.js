@@ -1,4 +1,3 @@
-import baseCss from './basedatecomponent.css.js'
 export class BaseDateComponent extends HTMLElement {
     constructor() {
         super();

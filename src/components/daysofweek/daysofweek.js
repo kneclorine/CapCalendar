@@ -1,6 +1,5 @@
 import { DAYSOFWEEK } from "../../services/config.js";
 import css from './daysofweek.css.js';
-import cssBase from '../basedatecomponent.css.js';
 
 export class DaysOfWeek extends HTMLElement{
     constructor(){
@@ -10,7 +9,7 @@ export class DaysOfWeek extends HTMLElement{
     }
 
     _create(){
-        this._shadow.adoptedStyleSheets = [cssBase, css];
+        this._shadow.adoptedStyleSheets = [css];
         DAYSOFWEEK.forEach(element => {
             const texto = document.createTextNode(element);
             const div = document.createElement('div')
