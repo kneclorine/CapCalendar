@@ -9,6 +9,7 @@ export class GridCalendar extends HTMLElement{
     constructor(){
         super();
         this.date = new Date();
+        this._selectedDate = new Date();
         this._disposables = [];
         this._shadow = this.attachShadow({mode: "open"});
     }
@@ -32,11 +33,15 @@ export class GridCalendar extends HTMLElement{
             } 
             if(!element.isSelected){
                 div.classList.remove("selected");
+                element.isSelected=false;
             }
             if(element.isToday){
                 div.classList.add("today");
-                div.classList.add("selected");
             }
+            if(DateService.isToday(this._selectedDate, element.date)) {
+                div.classList.add("selected");
+                element.isSelected = true;
+            } 
             this._shadow.appendChild(div);
             this._shadow.adoptedStyleSheets = [css];
         });
@@ -79,7 +84,10 @@ export class GridCalendar extends HTMLElement{
     _listener(div,element){
         pubSub.emit(CHANNELS.CHANGESELECTEDDAY,element.date);
         div.classList.add("selected");
-    }_changeSelected(div,element){
+        this._selectedDate = element.date;
+        element.isSelected = true;
+    }
+    _changeSelected(div,element){
         div.classList.remove("selected");
         element.isSelected=false;
     }
