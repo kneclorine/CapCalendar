@@ -11,7 +11,7 @@ export class Clock extends BaseDateComponent {
         const texto = super._create();
         const disposable = pubSub.on(CHANNELS.CHANGEDATE, (date) => super._update(texto,date));
         this._disposables.push(disposable);
-        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets,css];
+        this._shadow.adoptedStyleSheets = [css];
     }
 }
 customElements.define("cap-clock", Clock);

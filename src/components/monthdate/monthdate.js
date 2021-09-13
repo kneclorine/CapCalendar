@@ -22,7 +22,7 @@ export class MonthDate extends BaseDateComponent {
             super._update(texto,newDate)
         })
         this._disposables.push(disposableDate, disposableMonth);
-        this._shadow.adoptedStyleSheets = [...this._shadow.adoptedStyleSheets, css];
+        this._shadow.adoptedStyleSheets = [css];
     }
 }
 customElements.define("cap-monthdate", MonthDate);
